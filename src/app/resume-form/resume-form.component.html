@@ -1,0 +1,125 @@
+<html>
+    <body>
+        <section class="container">
+            <!-- <header>
+                <img src="assets/user.webp">
+            </header> -->
+            <div class="body">
+                <h1>Enter details for Resume</h1>
+                <form (ngSubmit)="OnSubmit()">
+                    <fieldset>
+                        <legend>Personal details</legend>
+                        <div class="column">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Enter full name" [(ngModel)]="formData.name" required >
+            
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="contact" name="email" placeholder="Enter Email Id" [(ngModel)]="formData.email" required > 
+                            
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" class="contact" name="phone" placeholder="Enter Phone" [(ngModel)]="formData.phone" required >
+
+                            <label for="links">Social Links</label>
+                            <img src="assets/linkedIn.png" class="image">
+                            <input type="url" id="url" class="contact" name="url" placeholder="Enter LinkedIn link" [(ngModel)]="formData.url1" >
+                            <img src="assets/github.png" class="image">
+                            <input type="url" id="gitUrl" class="contact" name="url" placeholder="Enter GitHub link" [(ngModel)]="formData.url2">
+                            
+
+                        </div>
+                    </fieldset>
+        
+                    <fieldset>
+                        <legend>Skills</legend>
+                        <div class="column">
+                            <label for="skills">Select skills</label>
+                            <select name="skills" id="skills" [(ngModel)]="formData.skills" multiple required >
+                                <option value="C">C</option>
+                                <option value="C++">C++</option>
+                                <option value="Java">Java</option>
+                                <option value="Python">Python</option>
+                                <option value="Javascript">Javascript</option>
+                                <option value="Reactjs">Reactjs</option>
+                                <option value="Nodejs">Nodejs</option>
+                                <option value="Angular">Angular</option>
+                                <option value="C#">C#</option>
+                            </select>
+                        </div>
+                    </fieldset>
+        
+                    <fieldset>
+                        <legend>Education</legend>
+                        <div class="column">
+                            <label for="qualification">Qualification</label>
+                            <!-- <div *ngFor= "let input of inputs.controls; let i= index"></div> -->
+                            <input id="qualification" type="text" name="qualification" class="qualification" placeholder="Enter Qualification" [(ngModel)]="newQualification.title" required >
+                            
+                            <label for="institution">Name of Institution</label>
+                            <input id="institution" name="institution" placeholder="Enter Name of Educational Institution" type="text" [(ngModel)]="newQualification.desc" required >
+                            
+                            <label for="grades">Percentage/CGPA</label>
+                            <input id="grades" name="grades" type="text" placeholder="Enter CGPA" [(ngModel)]="newQualification.grade" required >
+                            <button type="button" (click)="addEducation()">Add Education</button>
+
+                        </div>
+                        <div class="qualifications-list" *ngFor="let edu of formData.qualifications; let i=index">
+                            <div class="qualification-item">
+                                <h3>{{edu.title}}</h3>
+                                <p>{{edu.desc}}</p>
+                                <p>{{edu.grade}}</p>
+                                <button type="button" (click)="removeEducation(i)">Remove</button>
+                            </div>
+                        </div>
+                    </fieldset>
+        
+                    <fieldset>
+                        <legend>Projects</legend>
+                        <div class="column">
+                            <label for="projectTitle">Project title</label>
+                            <input id="projectTitle" type="text" placeholder="Enter project name" name="projectTitle" [(ngModel)]="newProject.title" required >
+                            
+                            <label for="projectDesc">Project Description</label>
+                            <textarea id="projectDesc" rows="3" placeholder="Enter project description" name="projectDesc" [(ngModel)]="newProject.desc" required ></textarea>
+                            <button type="button" (click)="addProject()">Add Project</button>
+                            
+                        </div>
+                        <div class="projects-list" *ngFor="let pro of formData.projects; let i = index">
+                            <div class="project-item">
+                              <h3>{{pro.title}}</h3>
+                              <p>{{pro.desc}}</p>
+                              <button type="button" (click)="removeProject(i)">Remove</button>
+                            </div>
+                          </div>
+                    </fieldset>
+        
+                    <fieldset>
+                        <legend>Achievements</legend>
+                        <div class="column">
+                          <label for="achievementTitle">Achievements/Hobbies</label>
+                          <input id="achievementTitle" type="text" placeholder="Enter an achievement" name="achievementTitle" [(ngModel)]="newAchievement.title">
+                          
+                          <label for="achievementDesc">Description</label>
+                          <textarea id="achievementDesc" rows="3" placeholder="Enter a description" name="achievementDesc" [(ngModel)]="newAchievement.description"></textarea>
+                          
+                          <button type="button" (click)="addAchievement()">Add Achievement</button>
+                        </div>
+                      
+                        <div class="achievements-list" *ngFor="let achievement of formData.achievements; let i = index">
+                          <div class="achievement-item">
+                            <h3>{{achievement.title}}</h3>
+                            <p>{{achievement.description}}</p>
+                            <button type="button" (click)="removeAchievement(i)">Remove</button>
+                          </div>
+                        </div>
+                      </fieldset>
+                      
+                    
+                    <button type="submit" value="submit">Submit</button>
+                </form>
+            </div>
+        </section>
+    </body>
+    
+    
+</html>
+
